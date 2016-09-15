@@ -6,7 +6,7 @@ Prototyping a tribute to an old game using typescript and phaserjs. link > http:
 - clone this repository
 - cd to the project root
 - run ```npm install && bower install```
-- run ```grunt dev``` this step traspiles typescript into javascript and places it in the public directory
+- run ```grunt dev --force``` this step traspiles typescript into javascript and places it in the public directory (ignore warnings related to IGameConfig for now...)
 - run ```http-server public``` starts a file server which serves up our html w/ phaser canvas
 - open your browser and point it at: ```https://localhost:8080```
 

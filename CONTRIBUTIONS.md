@@ -4,6 +4,9 @@
 
 ### Type script versions of the same examples (note this repo is mostly incomplete but you may find some good examples anyway): https://github.com/mikaturunen/phaser-examples-typescript/issues/30
 
+### Typescript features:
+https://basarat.gitbooks.io/typescript/content/docs/project/tsconfig.html
+
 # Rules
 - contributions should be done in feature branches and then merged with develop via pull requests
 
