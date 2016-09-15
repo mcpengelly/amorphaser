@@ -1,35 +1,13 @@
-# Phaser Typescript Boilerplate
+# Overview
+## amorphaser
+Prototyping a tribute to an old game using typescript and phaserjs. link > http://www.kongregate.com/games/innocuousgames/amorphous
 
-* Phaser (2.6.1)
-* Typescript
-* Grunt build process
-* Basic game
-  * Preload State, with loading bar
-  * Game State
+# Getting started (you'll need nodejs installed)
+- clone this repository
+- cd to the project root
+- run ```npm install && bower install```
+- run ```grunt dev``` this step traspiles typescript into javascript and places it in the public directory
+- run ```http-server public``` starts a file server which serves up our html w/ phaser canvas
+- open your browser and point it at: ```https://localhost:8080```
 
-## Installing
-
-`bower install phaser-typescript-boilerplate`
-
-Or clone from Git:
-
-`git clone https://github.com/cloakedninjas/phaser-typescript-boilerplate.git`
-
-An install script is provided which will perform the following:
-
-- Install npm dependencies
-- Install bower dependencies
-- Ask you for a namespace for your project
-- Set the namespace for the base files provided
-
-You can run it with `bin/install`
-
-## Building
-
-`grunt dev` for single build or `grunt watch` to compile as you make changes.
-
-## Running
-
-Built files are placed into the `public/` directory. Point a webserver at it, and you're away!
-
-`http-server public`
+# If you want to contribute see CONTRIBUTIONS.md
