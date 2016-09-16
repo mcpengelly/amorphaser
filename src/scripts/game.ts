@@ -8,7 +8,7 @@ module amorphaser {
                 width: window.innerWidth,
                 height: window.innerHeight,
                 renderer: Phaser.AUTO,
-                forceSetTimeOut: true
+                forceSetTimeOut: false
             });
 
             this.state.add('preloader', State.Preloader, true);
