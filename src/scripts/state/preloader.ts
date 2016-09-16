@@ -1,10 +1,12 @@
 module amorphaser.State {
 	export class Preloader extends Phaser.State {
-		loadingBar:Entity.PreloadBar;
+		loadingBar: Entity.PreloadBar;
+		player: Phaser.Sprite;
 
 		preload() {
 			this.loadingBar = new Entity.PreloadBar(this.game);
 			this.load.image('phaser-logo', 'assets/images/phaser-logo.png');
+			this.load.image('player', 'assets/images/player_1.png');
 		}
 
 		create() {

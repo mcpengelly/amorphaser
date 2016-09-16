@@ -1,10 +1,10 @@
 module amorphaser.Entity {
 	export class PreloadBar {
-		game:Game;
-		width:number;
-		height:number;
-		progressBar:Phaser.BitmapData;
-		loaderImg:Phaser.Sprite;
+		game: Game;
+		width: number;
+		height: number;
+		progressBar: Phaser.BitmapData;
+		loaderImg: Phaser.Sprite;
 
 		constructor(game) {
 			this.game = game;
