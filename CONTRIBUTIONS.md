@@ -8,6 +8,8 @@
 https://basarat.gitbooks.io/typescript/content/docs/project/tsconfig.html
 
 # Rules
+- don't submit code that breaks the build :)
+- this phaser game is written with typescript, so use it instead of js
 - contributions should be done in feature branches and then merged with develop via pull requests
 
 # How to PR
@@ -26,9 +28,11 @@ git push origin feature-1
 - create a Pull Request merging your branch (feature-1) into develop
 - you'll receive feedback or your code will be merged into develop
 
-# Style
-- coming soon
+## Style
+- use tabs, with 2 spaces per tab
+- if your code uses an external dependency please --save it to package.json or manually add it so others simply have to npm install to get your code working
 
-# linting
+## linting
+- todo: setup tslint
 
-# releases
+## releases
