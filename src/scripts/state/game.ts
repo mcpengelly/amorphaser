@@ -3,6 +3,10 @@ module amorphaser.State {
 		img: Phaser.Sprite;
 		player: Phaser.Sprite;
 
+		preload() {
+			// this.player = new Entity.Player(this.game);
+		}
+
 		create() {
 			this.img = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'phaser-logo');
 			this.img.anchor.x = 0.5;
