@@ -2,7 +2,7 @@
 
 ### Where to find information/examples: http://phaser.io/examples/
 
-### Type script versions of the same examples (note this repo is mostly incomplete but you may find some good examples anyway): https://github.com/mikaturunen/phaser-examples-typescript/issues/30
+### Type script versions of the same examples (note this repo is mostly incomplete but you may find some good examples anyway): https://github.com/mikaturunen/phaser-examples-typescript
 
 ### Typescript features:
 https://basarat.gitbooks.io/typescript/content/docs/project/tsconfig.html
