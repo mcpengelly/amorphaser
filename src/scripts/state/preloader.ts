@@ -1,7 +1,6 @@
 module amorphaser.State {
 	export class Preloader extends Phaser.State {
 		loadingBar: Entity.PreloadBar;
-		player: Phaser.Sprite;
 
 		preload() {
 			this.loadingBar = new Entity.PreloadBar(this.game);

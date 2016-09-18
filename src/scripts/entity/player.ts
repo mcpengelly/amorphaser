@@ -1,38 +1,31 @@
 module amorphaser.Entity {
-	export class Player {
+	export class Player extends Phaser.Sprite {
 		game: Game;
 		width: number;
 		height: number;
-		playerImg: Phaser.Sprite;
 
-		constructor(game) {
-			this.game = game;
-			this.width = game.width * 0.5;
-			this.height = 40;
-
-			var centreX = this.width / 2;
-
-			this.player = new Phaser.BitmapData(game, 'player', this.width, this.height);
-			this.playerImg = game.add.sprite(game.world.centerX - centreX, (game.height * 0.9) - this.height, this.player);
-			// this.playerImg = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'player');
+		constructor(game: Phaser.Game, x: number, y: number) {
+			super(game, x, y, 'player', 0);
+			this.anchor.setTo(0.5, 0);
+			this.game.physics.enable(this, Phaser.Physics.ARCADE);
+			game.add.existing(this);
 		}
-		// update() {
-		// 	this.img.angle += 1;
 
-		// 	if (this.game.input.mousePointer.isDown){
-		// 		this.player.body.velocity.setTo(0, 0);
-		// 	} else {
-		// 		// face the pointer
-		// 		this.player.rotation = this.game.physics.arcade.angleToPointer(this.player);
+		update() {
+			if (this.game.input.mousePointer.isDown){
+				this.body.velocity.setTo(0, 0);
+			} else {
+				// face the pointer
+				this.rotation = this.game.physics.arcade.angleToPointer(this);
 
-		// 		let playerSpeed = 400;
-		// 		this.game.physics.arcade.moveToPointer(this.player, playerSpeed);
+				let speed = 400;
+				this.game.physics.arcade.moveToPointer(this, speed);
 
-		// 		// if it's overlapping the mouse, don't move any more
-		// 		if (Phaser.Rectangle.contains(this.player.body, this.game.input.x, this.game.input.y)){
-		// 			this.player.body.velocity.setTo(0, 0);
-		// 		}
-		// 	}
-		// }
+				// if it's overlapping the mouse, don't move any more
+				if (Phaser.Rectangle.contains(this.body, this.game.input.x, this.game.input.y)){
+					this.body.velocity.setTo(0, 0);
+				}
+			}
+		}
 	}
 }
