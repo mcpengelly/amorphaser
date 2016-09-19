@@ -7,12 +7,31 @@ module.exports = function (grunt) {
 				options: {
 					module: 'amd', //or commonjs
 					target: 'es5', //or es3
-					sourceMap: false,
+					sourceMap: true, //enable sourcemaps so browser throws errors for typescript code instead
 					declaration: false
 				}
 			}
 		},
-
+		tslint: {
+			options: {
+				// can be a configuration object or a filepath to tslint.json
+				configuration: "tslint.json",
+				// If set to true, tslint errors will be reported, but not fail the task
+				// If set to false, tslint errors will be reported, and the task will fail
+				force: false
+			},
+			files: {
+				src: [
+					'src/scripts/**/*.ts'
+				]
+			}
+		},
+		githooks: {
+			all: {
+				// Will run the jshint and test:unit tasks at every commit
+				'pre-commit': 'tslint',
+			}
+		},
 		copy: {
 			dev: {
 				files: [
@@ -53,6 +72,7 @@ module.exports = function (grunt) {
 	});
 
 	grunt.loadNpmTasks('grunt-ts');
+	grunt.loadNpmTasks('grunt-tslint');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-watch');

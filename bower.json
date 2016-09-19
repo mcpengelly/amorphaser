@@ -1,18 +1,17 @@
 {
 	"name": "phaser-typescript-boilerplate",
 	"version": "1.3.1",
-	"homepage": "https://github.com/cloakedninjas/phaser-typescript-boilerplate",
+	"homepage": "https://github.com/mcpengelly/amorphaser",
 	"authors": [
 		"various"
 	],
-	"description": "Boilerplate for Phaser using Typescript",
+	"description": "tribute to an old webgame",
 	"moduleType": [
 		"amd"
 	],
 	"keywords": [
 		"phaser",
-		"typescript",
-		"boilerplate"
+		"typescript"
 	],
 	"license": "MIT",
 	"ignore": [
