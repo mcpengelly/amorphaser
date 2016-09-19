@@ -28,8 +28,8 @@ module.exports = function (grunt) {
 		},
 		githooks: {
 			all: {
-				// Will run the jshint and test:unit tasks at every commit
-				'pre-commit': 'tslint',
+				// Will run the tslint
+				'pre-commit': 'tslint'
 			}
 		},
 		copy: {
@@ -78,6 +78,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('dev', [
+		'tslint',
 		'clean:dev',
 		'ts:dev',
 		'copy:dev'
