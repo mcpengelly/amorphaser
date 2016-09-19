@@ -33,6 +33,7 @@ module amorphaser.Entity {
 					if(!this.isSwinging){
 						this.isSwinging = true;
 
+						console.log(urmom);
 						//blade rotation tween
 						this.game.add.tween(this.blade)
 						.to({ angle: +this.swingArcDistance },
