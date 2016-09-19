@@ -35,18 +35,23 @@ module amorphaser.Entity {
 
 						console.log(urmom);
 						//blade rotation tween
-						this.game.add.tween(this.blade)
+						var bladeRotationTween = this.game.add.tween(this.blade)
 						.to({ angle: +this.swingArcDistance },
-							this.swingDelay-10, //hacky.. tween and setTimeout race to finish otherwise though.
+							this.swingDelay,
 							Phaser.Easing.Exponential.Out,
 							true
 						);
 
-						// reset swing after some time passes
-						setTimeout(() => {
+						//Tips from this source
+						//http://www.html5gamedevs.com/topic/1651-tween-oncompletecallback/
+						//Add callback when onComplete event triggers for bladeRotationTween
+						bladeRotationTween.onComplete.add(function() {
+							//Blade Rotation Finished;
+							//Dunno what arguments this callback gets so printing it out just in case
+							//console.log(arguments);
 							this.blade.rotation -= this.swingArcDistance;
 							this.isSwinging = false;
-						}, this.swingDelay);
+						}, this);
 					}
 				} else {
 					// face the pointer
