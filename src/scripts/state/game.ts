@@ -18,7 +18,7 @@ module amorphaser.State {
 			// Change bg color
 			this.game.stage.backgroundColor = '#87CEEB';
 
-			this.player = new Entity.Player(this.game, 130, 284);
+			this.player = new Entity.Player(this.game, 100, 200);
 		}
 
 		update() {

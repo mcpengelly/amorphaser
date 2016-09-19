@@ -6,6 +6,7 @@ module amorphaser.State {
 			this.loadingBar = new Entity.PreloadBar(this.game);
 			this.load.image('phaser-logo', 'assets/images/phaser-logo.png');
 			this.load.image('player', 'assets/images/player_1.png');
+			this.load.image('blade', 'assets/images/blade.png');
 		}
 
 		create() {
