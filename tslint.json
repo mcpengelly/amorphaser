@@ -1,0 +1,41 @@
+{
+	"rules": {
+		"class-name": true,
+		"indent": [true, "tabs"],
+		"no-duplicate-variable": true,
+		"no-eval": true,
+		"no-internal-module": false,
+		"no-trailing-whitespace": true,
+		"quotemark": [true, "single"],
+		"semicolon": true,
+		"triple-equals": [true, "allow-null-check"],
+		"typedef-whitespace": [true, {
+			"call-signature": "nospace",
+			"index-signature": "nospace",
+			"parameter": "nospace",
+			"property-declaration": "nospace",
+			"variable-declaration": "nospace"
+		}],
+		"variable-name": [true, "ban-keywords"],
+		"no-any": false,
+		"no-arg": true,
+		"interface-name": false,
+		"no-empty": true,
+		"no-eval": true,
+		"no-console": [
+			true,
+			"info",
+			"time",
+			"timeEnd"
+		],
+		"no-unsafe-finally": true,
+		"no-unused-expression": true,
+		"no-unused-new": true,
+		"no-unused-variable": false,
+		"no-use-before-declare": true,
+		"no-var-keyword": true,
+		"no-var-requires": true,
+		"one-variable-per-declaration": true,
+		"only-arrow-functions": false
+	}
+}

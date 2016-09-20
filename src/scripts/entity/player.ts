@@ -18,7 +18,7 @@ module amorphaser.Entity {
 			this.anchor.setTo(0.5, 0);
 			this.game.physics.enable(this, Phaser.Physics.ARCADE);
 			this.blade = this.addChild(game.add.sprite(0, 0, 'blade'));
-			this.blade.rotation = -40;
+			this.blade.rotation = -50;
 			this.isSwinging = false;
 			this.swingDelay = 500;
 			this.swingArcDistance = 90;
@@ -34,7 +34,7 @@ module amorphaser.Entity {
 						this.isSwinging = true;
 
 						//blade rotation tween
-						var bladeRotationTween = this.game.add.tween(this.blade)
+						let bladeRotationTween = this.game.add.tween(this.blade)
 						.to({ angle: +this.swingArcDistance },
 							this.swingDelay,
 							Phaser.Easing.Exponential.Out,
@@ -44,10 +44,10 @@ module amorphaser.Entity {
 						//Tips from this source
 						//http://www.html5gamedevs.com/topic/1651-tween-oncompletecallback/
 						//Add callback when onComplete event triggers for bladeRotationTween
-						bladeRotationTween.onComplete.add(function() {
+						bladeRotationTween.onComplete.add(() => {
 							//Blade Rotation Finished;
 							//Dunno what arguments this callback gets so printing it out just in case
-							//console.log(arguments);
+							// console.log(arguments);
 							this.blade.rotation -= this.swingArcDistance;
 							this.isSwinging = false;
 						}, this);
