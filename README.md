@@ -11,3 +11,8 @@ Prototyping a tribute to an old game using typescript and phaserjs. link > http:
 - open your browser and point it at: ```https://localhost:8080```
 
 ### If you want to contribute see CONTRIBUTIONS.md
+
+
+#### todos
+- ensure githooks work correctly
+- test sourcemapped typescript files in IE debugger, find out if its possible to get working in chrome/chrome canary

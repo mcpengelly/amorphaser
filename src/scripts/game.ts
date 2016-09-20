@@ -18,5 +18,5 @@ module amorphaser {
 }
 
 // export Game to window
-var Game = amorphaser.Game;
+const Game = amorphaser.Game;
 

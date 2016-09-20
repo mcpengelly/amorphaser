@@ -10,15 +10,14 @@ module amorphaser.Entity {
 			this.game = game;
 			this.width = game.width * 0.5;
 			this.height = 40;
-
-			var centreX = this.width / 2;
+			let centreX = this.width / 2;
 
 			this.progressBar = new Phaser.BitmapData(game, 'preload-bar', this.width, this.height);
 			this.loaderImg = game.add.sprite(game.world.centerX - centreX, (game.height * 0.9) - this.height, this.progressBar);
 		}
 
 		setFillPercent(percent:number) {
-			var ctx = this.progressBar.ctx;
+			let ctx = this.progressBar.ctx;
 
 			this.progressBar.clear();
 			ctx.fillStyle = '#000';

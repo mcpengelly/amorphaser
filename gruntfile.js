@@ -7,7 +7,7 @@ module.exports = function (grunt) {
 				options: {
 					module: 'amd', //or commonjs
 					target: 'es5', //or es3
-					sourceMap: true, //enable sourcemaps so browser throws errors for typescript code instead
+					sourceMap: true, //enable sourcemaps so browser throws errors for .ts code, not .js
 					declaration: false
 				}
 			}
@@ -27,8 +27,9 @@ module.exports = function (grunt) {
 			}
 		},
 		githooks: {
+			//this might not be working 100% yet still need to investigate why
 			all: {
-				// Will run the tslint
+				// run tslint when git tries to commit code
 				'pre-commit': 'tslint'
 			}
 		},

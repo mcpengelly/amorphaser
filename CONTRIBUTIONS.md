@@ -28,11 +28,10 @@ git push origin feature-1
 - create a Pull Request merging your branch (feature-1) into develop
 - you'll receive feedback or your code will be merged into develop
 
-## Style
-- use tabs, with 2 spaces per tab
+## Style & linting
+- Code is linted with tslint when you build using ```grunt dev``` see the tslint.json file for our linter settings
+- use tabs, with tab size of 2
 - if your code uses an external dependency please --save it to package.json or manually add it so others simply have to npm install to get your code working
 
-## linting
-- todo: setup tslint
-
 ## releases
+- TBD
