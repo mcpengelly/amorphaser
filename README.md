@@ -8,9 +8,7 @@ Prototyping a tribute to an old game using typescript and phaserjs. link > http:
 - run ```npm install && bower install``` to install project dependencies
 - you'll need to install grunt, bower, and http-server globally as well which you can do using:
 ```
-npm install -g grunt
-npm install -g bower
-npm install -g http-server
+npm install -g grunt bower http-server
 ```
 - run ```grunt dev``` this step transpiles typescript into javascript and places it in the public directory
 - run ```http-server public``` starts a file server which serves up our html w/ attached phaser canvas
