@@ -27,7 +27,13 @@ module amorphaser.Entity {
 			this.swingDelay = 500;
 			this.swingArcDistance = 90;
 
+			//this.body.collideWorldBounds = true;
+
+
 			game.add.existing(this);
+
+			
+			this.body.velocity.setTo(300, 0);
 		}
 
 		update() {
@@ -58,7 +64,9 @@ module amorphaser.Entity {
 							this.isSwinging = false;
 						}, this);
 					}
-				} else {
+				}
+				/*
+				else {
 					// face the pointer
 					this.rotation = this.game.physics.arcade.angleToPointer(this);
 
@@ -70,6 +78,7 @@ module amorphaser.Entity {
 						this.body.velocity.setTo(0, 0);
 					}
 				}
+				*/
 			}
 		}
 

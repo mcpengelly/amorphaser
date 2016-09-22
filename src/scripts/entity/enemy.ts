@@ -12,6 +12,12 @@ module amorphaser.Entity {
 			super(game, x, y, 'enemy');
 			this.game = game;
 			game.add.existing(this);
+
+			//this.body.collideWorldBounds = true;
+		}
+
+		update() {
+			this.body.velocity.setTo(-300, 0);
 		}
 
 
