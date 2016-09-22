@@ -18,5 +18,5 @@ npm install -g grunt bower http-server
 
 
 #### todos
-- ensure githooks work correctly
-- test sourcemaps for typescript files in IE debugger, find out if its possible to get working in chrome/chrome canary
+- test sourcemapped typescript files in IE debugger, find out if its possible to get working in chrome/chrome canary
+- unit tests?
