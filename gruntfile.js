@@ -26,13 +26,6 @@ module.exports = function (grunt) {
 				]
 			}
 		},
-		githooks: {
-			//this might not be working 100% yet still need to investigate why
-			all: {
-				// run tslint when git tries to commit code
-				'pre-commit': 'tslint'
-			}
-		},
 		copy: {
 			dev: {
 				files: [
@@ -73,13 +66,11 @@ module.exports = function (grunt) {
 	});
 
 	grunt.loadNpmTasks('grunt-ts');
-	grunt.loadNpmTasks('grunt-tslint');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('dev', [
-		'tslint',
 		'clean:dev',
 		'ts:dev',
 		'copy:dev'

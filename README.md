@@ -14,5 +14,5 @@ Prototyping a tribute to an old game using typescript and phaserjs. link > http:
 
 
 #### todos
-- ensure githooks work correctly
 - test sourcemapped typescript files in IE debugger, find out if its possible to get working in chrome/chrome canary
+- unit tests?
