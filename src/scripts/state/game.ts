@@ -3,6 +3,7 @@ module amorphaser.State {
 		bg: Phaser.Sprite;
 		player: Entity.Player;
 		patPlayer: Entity.PatPlayer;
+		enemy: Entity.Enemy;
 
 		preload() {
 			this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -22,6 +23,7 @@ module amorphaser.State {
 			//this.player = new Entity.Player(this.game, 100, 200);
 
 			this.patPlayer = new Entity.PatPlayer(this.game, 100, 100);
+			this.enemy = new Entity.Enemy(this.game, 200, 200);
 		}
 
 		update() {
