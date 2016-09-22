@@ -18,7 +18,11 @@ module amorphaser.Entity {
 
 			this.game = game;
 			this.blade = this.addChild(game.add.sprite(0, 0, 'blade'));
-			this.blade.rotation = -50;
+
+			//this.blade.rotation = -90;
+			//http://www.html5gamedevs.com/topic/6514-spriteangle-and-bodyrotation-questions/
+			this.blade.angle = -90;
+
 			this.isSwinging = false;
 			this.swingDelay = 500;
 			this.swingArcDistance = 90;
@@ -49,7 +53,8 @@ module amorphaser.Entity {
 							//Blade Rotation Finished;
 							//Dunno what arguments this callback gets so printing it out just in case
 							// console.log(arguments);
-							this.blade.rotation -= this.swingArcDistance;
+							//this.blade.rotation -= this.swingArcDistance;
+							this.blade.angle = -90;
 							this.isSwinging = false;
 						}, this);
 					}
