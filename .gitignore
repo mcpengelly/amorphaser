@@ -3,5 +3,6 @@
 .DS_Store
 src/scripts/.baseDir.ts
 node_modules
+npm-debug.log
 bower_components
 public
