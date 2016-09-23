@@ -16,10 +16,5 @@ module amorphaser.Entity {
 			//this.body.collideWorldBounds = true;
 		}
 
-		update() {
-			this.body.velocity.setTo(-300, 0);
-		}
-
-
 	}
 }

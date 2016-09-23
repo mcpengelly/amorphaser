@@ -6,6 +6,9 @@ module amorphaser.Entity {
 	 *		swingDelay: number; : How long the player is stuck to the spot after swinging
 	 *		swingArcDistance: number; : How far the sword swings around the player
 	 */
+
+	//Check this out to fix this 2 level inheritance
+	//https://stackoverflow.com/questions/16839146/extending-base-class-methods-with-multiple-levels-of-inheritance-typescript
 	export class PatPlayer extends Entity.BaseEntity {
 		game: Game;
 		blade: any;
@@ -22,7 +25,6 @@ module amorphaser.Entity {
 			//this.blade.rotation = -90;
 			//http://www.html5gamedevs.com/topic/6514-spriteangle-and-bodyrotation-questions/
 			this.blade.angle = -90;
-
 			this.isSwinging = false;
 			this.swingDelay = 500;
 			this.swingArcDistance = 90;
@@ -63,7 +65,6 @@ module amorphaser.Entity {
 						}, this);
 					}
 				}
-				/*
 				else {
 					// face the pointer
 					this.rotation = this.game.physics.arcade.angleToPointer(this);
@@ -76,7 +77,6 @@ module amorphaser.Entity {
 						this.body.velocity.setTo(0, 0);
 					}
 				}
-				*/
 			}
 		}
 
