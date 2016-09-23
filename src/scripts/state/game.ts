@@ -22,20 +22,24 @@ module amorphaser.State {
 			// Change bg color
 			this.game.stage.backgroundColor = '#87CEEB';
 
-			//this.player = new Entity.Player(this.game, 100, 200);
+			this.player = new Entity.Player(this.game, 100, 200);
 
 			this.patPlayer = new Entity.PatPlayer(this.game, 100, 200);
+			console.log(typeof this.patPlayer);
+			console.log('patPlayer = ', this.patPlayer);
 			this.enemy = new Entity.Enemy(this.game, 700, 200);
 
-			this.game.physics.enable( [ this.patPlayer, this.enemy ], Phaser.Physics.ARCADE);
+			this.game.physics.enable( [ this.player, this.patPlayer, this.enemy ], Phaser.Physics.ARCADE);
 
 
 			//Test stuff
 			this.sprite1 = this.game.add.sprite(50, 300, 'player');
+			console.log(typeof this.sprite1);
+			console.log('sprite1 = ', this.sprite1);
 			this.sprite2 = this.game.add.sprite(700, 320, 'enemy');
 			this.game.physics.enable( [ this.sprite1, this.sprite2 ], Phaser.Physics.ARCADE);
 			this.sprite1.body.velocity.x = 300;
-			this.sprite2.body.velocity.x = -300;
+			//this.sprite2.body.velocity.x = -300;
 		}
 
 		update() {

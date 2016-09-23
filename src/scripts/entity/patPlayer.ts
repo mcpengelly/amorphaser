@@ -29,10 +29,8 @@ module amorphaser.Entity {
 
 			//this.body.collideWorldBounds = true;
 
+			//game.add.existing(this);
 
-			game.add.existing(this);
-
-			
 			this.body.velocity.setTo(300, 0);
 		}
 

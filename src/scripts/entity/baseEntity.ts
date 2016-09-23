@@ -8,13 +8,14 @@ module amorphaser.Entity {
 	 */
 	export class BaseEntity extends Phaser.Sprite {
 		game: Game;
-		updateFunc: () => void;
 
 		constructor(game: Phaser.Game, x: number, y: number, key: string) {
 			super(game, x, y, key, 0);
 			this.anchor.setTo(0.5, 0.5);
 			this.game.physics.enable(this, Phaser.Physics.ARCADE);
 			//this.game.physics.arcade.enable(this);
+
+			this.game.add.existing(this);
 		}
 
 
