@@ -7,11 +7,11 @@ module amorphaser.Entity {
 	 *		swingArcDistance: number; : How far the sword swings around the player
 	 */
 
-	//Check this out to fix this 2 level inheritance
+	//Typescript subclass of a subclass info:
 	//https://stackoverflow.com/questions/16839146/extending-base-class-methods-with-multiple-levels-of-inheritance-typescript
 	export class PatPlayer extends Entity.BaseEntity {
 		game: Game;
-		blade: any;
+		blade: Phaser.Sprite;
 		isSwinging: boolean;
 		swingDelay: number;
 		swingArcDistance: number;
@@ -20,7 +20,8 @@ module amorphaser.Entity {
 			super(game, x, y, 'player');
 
 			this.game = game;
-			this.blade = this.addChild(game.add.sprite(0, 0, 'blade'));
+			this.blade = game.add.sprite(0, 0, 'blade');
+			this.addChild(this.blade);
 
 			//this.blade.rotation = -90;
 			//http://www.html5gamedevs.com/topic/6514-spriteangle-and-bodyrotation-questions/
@@ -29,11 +30,7 @@ module amorphaser.Entity {
 			this.swingDelay = 500;
 			this.swingArcDistance = 90;
 
-			//this.body.collideWorldBounds = true;
-
-			//game.add.existing(this);
-
-			this.body.velocity.setTo(300, 0);
+			this.body.collideWorldBounds = true;
 		}
 
 		update() {

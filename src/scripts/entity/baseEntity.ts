@@ -13,8 +13,6 @@ module amorphaser.Entity {
 			super(game, x, y, key, 0);
 			this.anchor.setTo(0.5, 0.5);
 			this.game.physics.enable(this, Phaser.Physics.ARCADE);
-			//this.game.physics.arcade.enable(this);
-
 			this.game.add.existing(this);
 		}
 
