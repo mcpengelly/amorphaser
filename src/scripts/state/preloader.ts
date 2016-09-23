@@ -7,6 +7,7 @@ module amorphaser.State {
 			this.load.image('phaser-logo', 'assets/images/phaser-logo.png');
 			this.load.image('player', 'assets/images/player_1.png');
 			this.load.image('blade', 'assets/images/blade.png');
+			this.load.image('enemy', 'assets/images/enemy.png');
 		}
 
 		create() {

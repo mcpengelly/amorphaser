@@ -2,6 +2,9 @@ module amorphaser.State {
 	export class Game extends Phaser.State {
 		bg: Phaser.Sprite;
 		player: Entity.Player;
+		patPlayer: Entity.PatPlayer;
+		enemy: Entity.Enemy;
+
 
 		preload() {
 			this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -18,11 +21,28 @@ module amorphaser.State {
 			// Change bg color
 			this.game.stage.backgroundColor = '#87CEEB';
 
-			this.player = new Entity.Player(this.game, 100, 200);
+			//this.player = new Entity.Player(this.game, 100, 200);
+
+			this.patPlayer = new Entity.PatPlayer(this.game, 100, 200);
+			this.enemy = new Entity.Enemy(this.game, 700, 200);
+
 		}
 
 		update() {
 			this.bg.rotation += 0.001;
+
+
+			// object1, object2, collideCallback, processCallback, callbackContext
+			this.game.physics.arcade.collide(this.patPlayer, this.enemy, function(obj1, obj2) { this.game.stage.backgroundColor = '#992d2d'; }, null, this);
+
+			
+		}
+
+		render() {
+			// this.game.debug.bodyInfo(this.patPlayer, 32, 32);
+			// this.game.debug.body(this.patPlayer);
+
+			// this.game.debug.body(this.enemy);
 		}
 	}
 }
