@@ -80,6 +80,9 @@ module amorphaser.Entity {
 					let playerLocation = new Phaser.Point(this.body.x, this.body.y);
 
 					let playerToPointerWorldSpace = Phaser.Point.subtract(mouseLocation, playerLocation);
+					//^^ do some calculations to check if moveSpeed overshoots in this direction
+					//Check distance against moveSpeed maybe?
+					// or distance squared against moveSpeed squared?
 
 					let playerToPointerWorldSpaceNormalized = Phaser.Point.normalize(playerToPointerWorldSpace);
 
