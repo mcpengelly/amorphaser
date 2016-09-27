@@ -41,8 +41,12 @@ module.exports = function (grunt) {
 						src: 'src/index.html',
 						dest: 'public/index.html'
 					},
+					// {
+					// 	src: 'bower_components/phaser/build/custom/phaser-arcade-physics.js',
+					// 	dest: 'public/vendor/phaser/phaser.js'
+					// }
 					{
-						src: 'bower_components/phaser/build/custom/phaser-arcade-physics.js',
+						src: 'bower_components/phaser/build/phaser.js',
 						dest: 'public/vendor/phaser/phaser.js'
 					}
 				]

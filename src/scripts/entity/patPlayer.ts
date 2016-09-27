@@ -29,13 +29,18 @@ module amorphaser.Entity {
 			this.isSwinging = false;
 			this.swingDelay = 500;
 			this.swingArcDistance = 90;
+			//
+			//this.body.collideWorldBounds = true;
+		}
 
-			this.body.collideWorldBounds = true;
+		zeroVelocity() {
+			this.body.velocity.x = 0;
+			this.body.velocity.y = 0;
 		}
 
 		update() {
 			if(this.isSwinging){
-				this.body.velocity.setTo(0, 0);
+				this.zeroVelocity();
 			} else {
 				if (this.game.input.mousePointer.isDown){
 					if(!this.isSwinging){
@@ -67,11 +72,23 @@ module amorphaser.Entity {
 					this.rotation = this.game.physics.arcade.angleToPointer(this);
 
 					let moveSpeed = 400;
-					this.game.physics.arcade.moveToPointer(this, moveSpeed);
+					//this.game.physics.arcade.moveToPointer(this, moveSpeed);
+
+					let mousePointer = this.game.input.mousePointer;
+					let mouseLocation = new Phaser.Point(mousePointer.x, mousePointer.y);
+
+					let playerLocation = new Phaser.Point(this.body.x, this.body.y);
+
+					let playerToPointerWorldSpace = Phaser.Point.subtract(mouseLocation, playerLocation);
+
+					let playerToPointerWorldSpaceNormalized = Phaser.Point.normalize(playerToPointerWorldSpace);
+
+					this.body.velocity.x = playerToPointerWorldSpaceNormalized.x * moveSpeed;
+					this.body.velocity.y = playerToPointerWorldSpaceNormalized.y * moveSpeed;
 
 					// if it's overlapping the mouse, don't move any more
 					if (Phaser.Rectangle.contains(this.body, this.game.input.x, this.game.input.y)){
-						this.body.velocity.setTo(0, 0);
+						this.zeroVelocity();
 					}
 				}
 			}

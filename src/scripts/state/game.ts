@@ -7,7 +7,9 @@ module amorphaser.State {
 
 
 		preload() {
-			this.game.physics.startSystem(Phaser.Physics.ARCADE);
+			//this.game.physics.startSystem(Phaser.Physics.ARCADE);
+			this.game.physics.startSystem(Phaser.Physics.P2JS);
+			this.game.physics.p2.restitution = 0.8;
 		}
 
 		create() {
@@ -21,8 +23,13 @@ module amorphaser.State {
 			// Change bg color
 			this.game.stage.backgroundColor = '#87CEEB';
 
+
 			this.patPlayer = new Entity.PatPlayer(this.game, 100, 200);
 			this.enemy = new Entity.Enemy(this.game, 700, 200);
+
+			//  Enable if for physics. This creates a default rectangular body.
+			this.game.physics.p2.enable(this.patPlayer);
+			this.patPlayer.body.setZeroDamping();
 
 		}
 
@@ -30,7 +37,7 @@ module amorphaser.State {
 			this.bg.rotation += 0.001;
 
 			// object1, object2, collideCallback, processCallback, callbackContext
-			this.game.physics.arcade.collide(this.patPlayer, this.enemy, function(obj1, obj2) { this.game.stage.backgroundColor = '#992d2d'; }, null, this);
+			//this.game.physics.arcade.collide(this.patPlayer, this.enemy, function(obj1, obj2) { this.game.stage.backgroundColor = '#992d2d'; }, null, this);
 		}
 	}
 }

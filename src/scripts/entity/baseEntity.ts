@@ -12,7 +12,10 @@ module amorphaser.Entity {
 		constructor(game: Phaser.Game, x: number, y: number, key: string) {
 			super(game, x, y, key, 0);
 			this.anchor.setTo(0.5, 0.5);
-			this.game.physics.enable(this, Phaser.Physics.ARCADE);
+			//
+			//Temporarily move this to game.ts for now for quicker prototyping
+			//this.game.physics.enable(this, Phaser.Physics.ARCADE);
+			//
 			this.game.add.existing(this);
 		}
 
