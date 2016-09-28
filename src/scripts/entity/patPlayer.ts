@@ -79,18 +79,18 @@ module amorphaser.Entity {
 
 					let playerLocation = new Phaser.Point(this.body.x, this.body.y);
 
-					let playerToPointerWorldSpace = Phaser.Point.subtract(mouseLocation, playerLocation);
-					//^^ do some calculations to check if moveSpeed overshoots in this direction
-					//Check distance against moveSpeed maybe?
-					// or distance squared against moveSpeed squared?
-
-					let playerToPointerWorldSpaceNormalized = Phaser.Point.normalize(playerToPointerWorldSpace);
-
-					this.body.velocity.x = playerToPointerWorldSpaceNormalized.x * moveSpeed;
-					this.body.velocity.y = playerToPointerWorldSpaceNormalized.y * moveSpeed;
-
-					// if it's overlapping the mouse, don't move any more
-					if (Phaser.Rectangle.contains(this.body, this.game.input.x, this.game.input.y)){
+					//player to mouse vector in world space
+					let playerToMouseWS = Phaser.Point.subtract(mouseLocation, playerLocation);
+					//
+					let playerToMouseWorldSpaceNormalized = Phaser.Point.normalize(playerToMouseWS);
+					//
+					this.body.velocity.x = playerToMouseWorldSpaceNormalized.x * moveSpeed;
+					this.body.velocity.y = playerToMouseWorldSpaceNormalized.y * moveSpeed;
+					//
+					//
+					let bodies = this.game.physics.p2.hitTest(mouseLocation, [this]);
+					if(bodies.length !== 0) {
+						console.log('stop');
 						this.zeroVelocity();
 					}
 				}
