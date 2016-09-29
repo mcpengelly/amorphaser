@@ -28,8 +28,8 @@ module amorphaser.State {
 			this.enemy = new Entity.Enemy(this.game, 700, 200);
 
 			//  Enable if for physics. This creates a default rectangular body.
-			this.game.physics.p2.enable(this.patPlayer, true);
-			this.patPlayer.body.setZeroDamping();
+			// this.game.physics.p2.enable(this.patPlayer, true);
+			// this.patPlayer.body.setZeroDamping();
 
 		}
 

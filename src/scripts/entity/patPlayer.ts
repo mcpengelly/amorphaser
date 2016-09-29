@@ -18,10 +18,15 @@ module amorphaser.Entity {
 
 		constructor(game: Phaser.Game, x: number, y: number) {
 			super(game, x, y, 'player');
+			game.physics.p2.enable(this, true);
+			this.body.setZeroDamping();
 
 			this.game = game;
 			this.blade = game.add.sprite(0, 0, 'blade');
-			this.addChild(this.blade);
+			this.blade.x = 100;
+			this.blade.y = 200;
+			game.physics.p2.enable(this.blade, true);
+			//this.addChild(this.blade);
 
 			//this.blade.rotation = -90;
 			//http://www.html5gamedevs.com/topic/6514-spriteangle-and-bodyrotation-questions/
@@ -69,7 +74,13 @@ module amorphaser.Entity {
 				}
 				else {
 					// face the pointer
-					this.rotation = this.game.physics.arcade.angleToPointer(this);
+					//this.rotation = this.game.physics.arcade.angleToPointer(this);
+					//
+					//http://www.html5gamedevs.com/topic/5987-force-sprite-to-rotate-with-p2-physics-body/
+					//Adapted simple solution from ^^^
+					//Prettier solution allows adjusting rotation speed towards pointer
+					this.body.rotation = this.game.physics.arcade.angleToPointer(this) + Math.PI/2;
+
 
 					let moveSpeed = 400;
 					//this.game.physics.arcade.moveToPointer(this, moveSpeed);

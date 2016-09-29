@@ -13,9 +13,14 @@ module amorphaser.Entity {
 			super(game, x, y, key, 0);
 			this.anchor.setTo(0.5, 0.5);
 			//
-			//Temporarily move this to game.ts for now for quicker prototyping
 			//this.game.physics.enable(this, Phaser.Physics.ARCADE);
 			//
+			//  Enable if for physics. This creates a default rectangular body.
+			//
+			// This does create the physics body but debug doesn't show
+			// game.physics.p2.enable(this, true);
+			// this.body.setZeroDamping();
+
 			this.game.add.existing(this);
 		}
 
