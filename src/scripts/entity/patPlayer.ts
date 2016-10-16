@@ -18,24 +18,24 @@ module amorphaser.Entity {
 
 		constructor(game: Phaser.Game, x: number, y: number) {
 			super(game, x, y, 'player');
-			game.physics.p2.enable(this, true);
+			this.game = game;
+			this.game.physics.p2.enable(this, true);
 			this.body.setZeroDamping();
 
-			this.game = game;
-			this.blade = game.add.sprite(0, 0, 'blade');
-			this.blade.x = 100;
-			this.blade.y = 200;
-			game.physics.p2.enable(this.blade, true);
-			//this.addChild(this.blade);
+			this.blade = this.game.add.sprite(0, 0, 'blade');
+			// let playerCollisionGroup = game.physics.p2.createCollisionGroup();
+			// this.body.setCollisionGroup(playerCollisionGroup);
 
-			//this.blade.rotation = -90;
-			//http://www.html5gamedevs.com/topic/6514-spriteangle-and-bodyrotation-questions/
-			this.blade.angle = -90;
+			// this.addChild(this.blade); // doesnt work correctly with p2??
+
+			this.game.physics.p2.enable(this.blade, true);
+			this.blade.body.kinematic = true; //we only move the blade using a tween, no need for forces
+			// this.blade.body.setCollisionGroup(playerCollisionGroup);
+
+			// this.blade.body.angle = -90;
 			this.isSwinging = false;
 			this.swingDelay = 500;
 			this.swingArcDistance = 90;
-			//
-			//this.body.collideWorldBounds = true;
 		}
 
 		zeroVelocity() {
@@ -44,6 +44,14 @@ module amorphaser.Entity {
 		}
 
 		update() {
+			/*
+				HACK: shouldnt handle positioning this way but only way
+				i know to work around addChild w/ p2
+			*/
+			this.blade.body.x = this.body.x;
+			this.blade.body.y = this.body.y;
+			//remove if possible
+
 			if(this.isSwinging){
 				this.zeroVelocity();
 			} else {
@@ -51,8 +59,8 @@ module amorphaser.Entity {
 					if(!this.isSwinging){
 						this.isSwinging = true;
 
-						//blade rotation tween
-						let bladeRotationTween = this.game.add.tween(this.blade)
+						//blade rotation tween (now uses this.blade.body.angle instead)
+						let bladeRotationTween = this.game.add.tween(this.blade.body)
 						.to({ angle: +this.swingArcDistance },
 							this.swingDelay,
 							Phaser.Easing.Exponential.Out,
@@ -67,7 +75,7 @@ module amorphaser.Entity {
 							//Dunno what arguments this callback gets so printing it out just in case
 							// console.log(arguments);
 							//this.blade.rotation -= this.swingArcDistance;
-							this.blade.angle = -90;
+							this.blade.body.angle = -90;
 							this.isSwinging = false;
 						}, this);
 					}

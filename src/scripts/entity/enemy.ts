@@ -11,7 +11,7 @@ module amorphaser.Entity {
 		constructor(game: Phaser.Game, x: number, y: number) {
 			super(game, x, y, 'enemy');
 			this.game = game;
-			//
+			this.game.physics.p2.enable(this, true);
 			//this.body.collideWorldBounds = true;
 		}
 
